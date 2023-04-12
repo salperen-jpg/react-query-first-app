@@ -18,7 +18,7 @@ function App() {
       <div className='container'>
         <ToastContainer position='top-center' />
         <From />
-        <Tasks items={items} />
+        <Tasks />
       </div>
     </main>
   );

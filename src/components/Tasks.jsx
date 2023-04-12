@@ -2,15 +2,10 @@ import React from 'react';
 import Task from './Task';
 import { useQuery } from '@tanstack/react-query';
 import customFetch from './utils/customFetch';
+import { useFetchTasks } from '../reactQueryCustomHooks';
 
-const Tasks = ({ items }) => {
-  const { isLoading, data, isError } = useQuery({
-    queryKey: ['tasks'],
-    queryFn: async () => {
-      const { data } = await customFetch.get('/');
-      return data;
-    },
-  });
+const Tasks = () => {
+  const { isLoading, data, isError } = useFetchTasks();
 
   if (isLoading) {
     return <div>loading</div>;
